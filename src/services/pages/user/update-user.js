@@ -27,18 +27,14 @@ export default {
         this.userInfo.id = this.id,
         this.userInfo.name = updateUser[0].name,
         this.userInfo.email = updateUser[0].email,
-        
+        this.userInfo.type = updateUser[0].type,
         this.userInfo.profile_path = updateUser[0].profile_path,
         this.selectedType = updateUser[0].type == 0 ? 'Admin' : 'User'
 	},
 	methods: {
         setSelected(value) {
             this.selectedType = value;
-			if(value == "Admin") {
-				this.userInfo.type = 0
-			} else if(value == "User") {
-				this.userInfo.type = 1
-            }
+            this.userInfo.type = value;
             console.log(this.userInfo.type);
         },
         imageChanged(e) {
@@ -54,7 +50,11 @@ export default {
 			}
 		},
         updateUserConfirm() {
-            console.log(this.userInfo.type);
+            if(this.userInfo.type == "Admin") {
+				this.userInfo.type = 0
+			} else if(this.userInfo.type == "User") {
+				this.userInfo.type = 1
+            }
             this.$store
                 .dispatch("updateUserConfirm", this.userInfo)
                 .then(() => {
