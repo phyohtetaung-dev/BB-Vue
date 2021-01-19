@@ -10,14 +10,14 @@ export default {
   methods: {
     createUser() {
       this.$store
-          .dispatch("createUser", this.$store.state.userList)
-          .then(() => {
-              this.error = "";
-              this.$router.push({ name: "user-list" });
-          })
-          .catch(err => {
-            console.log(err);
-          });
+				.dispatch("createUser", this.$store.state.userList)
+				.then(() => {
+					this.error = "";
+					this.$router.push({ name: "user-list" });
+				})
+				.catch(err => {
+					console.log(err);
+				});
     }
   }
 };

@@ -3,7 +3,7 @@
     <v-card-title class="user-title">
         <span class="title font-weight-light">Create User</span>
     </v-card-title>
-    <v-form ref="form" @submit.prevent="createUserConfirm" id="createUserForm">
+    <v-form ref="form" @submit.prevent="createUserConfirm">
         <v-card-text>
           <div class="user-input">
             <v-text-field v-model="userInfo.name" type="text" label="Name" hide-details="auto" class="error-box"></v-text-field>
